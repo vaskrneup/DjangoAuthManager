@@ -39,5 +39,5 @@ def validate_and_get_data(token, request, identifiers=None):
                 "user_data": data.get("d"),
                 "user_optional_identifiers": data.get("i"),
             }
-    except SignatureExpired as e:
-        raise TokenExpired(str(e))
+    except Exception as _:
+        raise TokenExpired("Token expired or invalid token.")
